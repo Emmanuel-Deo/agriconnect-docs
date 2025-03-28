@@ -1,0 +1,18 @@
+/* Make the sidebar sticky */
+.wy-nav-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Prevent inner menu from scrolling */
+.wy-menu {
+    overflow: hidden !important;
+}
+
+/* Adjust content margin so it doesn’t overlap */
+.wy-nav-content {
+    margin-left: 300px; /* Adjust as needed */
+}
