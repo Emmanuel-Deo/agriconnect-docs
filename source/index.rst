@@ -7,8 +7,9 @@ LESSONS LEARNED FROM AGRICONNECT NUTRITION PROGRAMME
 ====================================================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 4
    :caption: Contents:
 
    lessons_learned_success
    lessons_learned_impediments
+   api-docs

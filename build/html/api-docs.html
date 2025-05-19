@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API Documentation &mdash; agriconnect-docs 28 March 2025 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=45afed63" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=78a116aa"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lessons Learned - Impediments/Constraints" href="lessons_learned_impediments.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            agriconnect-docs
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_success.html">Lesson learned- elements of Success</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_success.html#a-national-nutrition-campaign">A. National Nutrition Campaign:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_success.html#b-daladala-nutrition-education-tour">B. Daladala Nutrition Education Tour</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_success.html#c-the-implementation-of-the-solidarity">C. The Implementation of the Solidarity…</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_success.html#d-the-national-base-zoom-cloud-workshop">D. The National-Base Zoom Cloud Workshop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lessons_learned_impediments.html">Lessons Learned - Impediments/Constraints</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#store-id">Store ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#state-variables">State Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getters">Getters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#actions">Actions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#district-data">District Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fetchDistrictData"><code class="docutils literal notranslate"><span class="pre">fetchDistrictData()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setDistrictData"><code class="docutils literal notranslate"><span class="pre">setDistrictData()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#supabase-data">Supabase Data</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fetchSumsIndicators"><code class="docutils literal notranslate"><span class="pre">fetchSumsIndicators()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#fetchfaIndicators"><code class="docutils literal notranslate"><span class="pre">fetchfaIndicators()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#user-selections">User Selections</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setTableType"><code class="docutils literal notranslate"><span class="pre">setTableType()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedIndicatorCode"><code class="docutils literal notranslate"><span class="pre">setSelectedIndicatorCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedfaIndicatorCode"><code class="docutils literal notranslate"><span class="pre">setSelectedfaIndicatorCode()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedGrantee"><code class="docutils literal notranslate"><span class="pre">setSelectedGrantee()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedfaGrantee"><code class="docutils literal notranslate"><span class="pre">setSelectedfaGrantee()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedYear"><code class="docutils literal notranslate"><span class="pre">setSelectedYear()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedQuota"><code class="docutils literal notranslate"><span class="pre">setSelectedQuota()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSelectedAggregate"><code class="docutils literal notranslate"><span class="pre">setSelectedAggregate()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setDefaultUserSelection"><code class="docutils literal notranslate"><span class="pre">setDefaultUserSelection()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#table-and-year-state">Table and Year State</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#setCTtable"><code class="docutils literal notranslate"><span class="pre">setCTtable()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setATyears"><code class="docutils literal notranslate"><span class="pre">setATyears()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setSumsTab"><code class="docutils literal notranslate"><span class="pre">setSumsTab()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">agriconnect-docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api-docs.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-documentation">
+<h1>API Documentation<a class="headerlink" href="#api-documentation" title="Link to this heading"></a></h1>
+<p>fetchSumStore Pinia Store</p>
+<p>The <cite>fetchSumStore</cite> is a centralized Pinia store module used in a Quasar/Vue.js application. It manages user selections, indicator and table metadata, district geometry data, and interacts with both Supabase and GeoServer.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#store-id" id="id1">Store ID</a></p></li>
+<li><p><a class="reference internal" href="#state-variables" id="id2">State Variables</a></p></li>
+<li><p><a class="reference internal" href="#getters" id="id3">Getters</a></p></li>
+<li><p><a class="reference internal" href="#actions" id="id4">Actions</a></p>
+<ul>
+<li><p><a class="reference internal" href="#district-data" id="id5">District Data</a></p></li>
+<li><p><a class="reference internal" href="#supabase-data" id="id6">Supabase Data</a></p></li>
+<li><p><a class="reference internal" href="#user-selections" id="id7">User Selections</a></p></li>
+<li><p><a class="reference internal" href="#table-and-year-state" id="id8">Table and Year State</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#dependencies" id="id9">Dependencies</a></p></li>
+<li><p><a class="reference internal" href="#notes" id="id10">Notes</a></p></li>
+</ul>
+</nav>
+<section id="store-id">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Store ID</a><a class="headerlink" href="#store-id" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: <code class="docutils literal notranslate"><span class="pre">fetchSumStore</span></code></p></li>
+</ul>
+</section>
+<section id="state-variables">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">State Variables</a><a class="headerlink" href="#state-variables" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Property</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>userSelection</p></td>
+<td><p>Object</p></td>
+<td><p>Stores selected grantee, code, year, quota, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>atYears</p></td>
+<td><p>Object</p></td>
+<td><p>Contains <cite>at_year1</cite> and <cite>at_year2</cite> for year comparisons.</p></td>
+</tr>
+<tr class="row-even"><td><p>tableType</p></td>
+<td><p>String</p></td>
+<td><p>Type of table to display (e.g., <code class="docutils literal notranslate"><span class="pre">ct</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>currentTab</p></td>
+<td><p>String</p></td>
+<td><p>Current tab selected in the UI (e.g., <code class="docutils literal notranslate"><span class="pre">pirs</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p>sumsTab</p></td>
+<td><p>String</p></td>
+<td><p>Sub-tab under <cite>sums</cite> context.</p></td>
+</tr>
+<tr class="row-odd"><td><p>sumsIndicators</p></td>
+<td><p>Array or null</p></td>
+<td><p>Stores fetched sum indicator codes from Supabase.</p></td>
+</tr>
+<tr class="row-even"><td><p>faIndicators</p></td>
+<td><p>Array or null</p></td>
+<td><p>Stores fetched FA indicator mappings from Supabase.</p></td>
+</tr>
+<tr class="row-odd"><td><p>selectedGrantee</p></td>
+<td><p>String</p></td>
+<td><p>User-selected grantee.</p></td>
+</tr>
+<tr class="row-even"><td><p>selectedIndicatorCode</p></td>
+<td><p>String</p></td>
+<td><p>Selected indicator code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>selectedYear</p></td>
+<td><p>String</p></td>
+<td><p>Year selected by the user.</p></td>
+</tr>
+<tr class="row-even"><td><p>selectedQuota</p></td>
+<td><p>String</p></td>
+<td><p>Quarter or period selected (e.g., <code class="docutils literal notranslate"><span class="pre">janmar</span></code>).</p></td>
+</tr>
+<tr class="row-odd"><td><p>districts</p></td>
+<td><p>Object or null</p></td>
+<td><p>Stores district GeoJSON data.</p></td>
+</tr>
+<tr class="row-even"><td><p>ctTable</p></td>
+<td><p>Object or null</p></td>
+<td><p>Stores current CT table data.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="getters">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Getters</a><a class="headerlink" href="#getters" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Getter Name</p></th>
+<th class="head"><p>Returns</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>getCurrentTab</p></td>
+<td><p>String</p></td>
+<td><p>Current selected tab.</p></td>
+</tr>
+<tr class="row-odd"><td><p>getUserSelection</p></td>
+<td><p>Object</p></td>
+<td><p>Full <cite>userSelection</cite> object.</p></td>
+</tr>
+<tr class="row-even"><td><p>getSumsIndicators</p></td>
+<td><p>Array or null</p></td>
+<td><p>Returns <cite>sumsIndicators</cite>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>getfaIndicators</p></td>
+<td><p>Array or null</p></td>
+<td><p>Returns <cite>faIndicators</cite>.</p></td>
+</tr>
+<tr class="row-even"><td><p>getSelectedGrantee</p></td>
+<td><p>String</p></td>
+<td><p>Returns selected grantee.</p></td>
+</tr>
+<tr class="row-odd"><td><p>getSelectedYear</p></td>
+<td><p>String</p></td>
+<td><p>Returns selected year.</p></td>
+</tr>
+<tr class="row-even"><td><p>getSelectedQuota</p></td>
+<td><p>String</p></td>
+<td><p>Returns selected quarter.</p></td>
+</tr>
+<tr class="row-odd"><td><p>getSelectedTable</p></td>
+<td><p>String</p></td>
+<td><p>Returns selected table type.</p></td>
+</tr>
+<tr class="row-even"><td><p>getctTable</p></td>
+<td><p>Object or null</p></td>
+<td><p>Returns CT table data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>getAtYear</p></td>
+<td><p>Object</p></td>
+<td><p>Returns the year comparison object.</p></td>
+</tr>
+<tr class="row-even"><td><p>getSumsTab</p></td>
+<td><p>String</p></td>
+<td><p>Returns selected <cite>sumsTab</cite>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="actions">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Actions</a><a class="headerlink" href="#actions" title="Link to this heading"></a></h2>
+<section id="district-data">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">District Data</a><a class="headerlink" href="#district-data" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="fetchDistrictData">
+<span class="sig-name descname"><span class="pre">fetchDistrictData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fetchDistrictData" title="Link to this definition"></a></dt>
+<dd><p>Fetches GeoJSON features from <cite>agriconnect:Districts</cite> via WFS.</p>
+<ul class="simple">
+<li><p><strong>Sets</strong>: <code class="docutils literal notranslate"><span class="pre">districts</span></code> (full axios response)</p></li>
+<li><p><strong>Source</strong>: GeoServer WFS</p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setDistrictData">
+<span class="sig-name descname"><span class="pre">setDistrictData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#setDistrictData" title="Link to this definition"></a></dt>
+<dd><p>Fetches a subset (max 50 features) of <cite>agriconnect:OP_DISTRICTS</cite>.</p>
+<ul class="simple">
+<li><p><strong>Sets</strong>: <code class="docutils literal notranslate"><span class="pre">districts</span></code> (parsed GeoJSON)</p></li>
+<li><p><strong>Source</strong>: GeoServer WFS</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="supabase-data">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Supabase Data</a><a class="headerlink" href="#supabase-data" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="fetchSumsIndicators">
+<span class="sig-name descname"><span class="pre">fetchSumsIndicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fetchSumsIndicators" title="Link to this definition"></a></dt>
+<dd><p>Loads all records from the <cite>codes_sums_indicators</cite> table in Supabase.</p>
+<ul class="simple">
+<li><p><strong>Sets</strong>: <code class="docutils literal notranslate"><span class="pre">sumsIndicators</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fetchfaIndicators">
+<span class="sig-name descname"><span class="pre">fetchfaIndicators</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fetchfaIndicators" title="Link to this definition"></a></dt>
+<dd><p>Loads <cite>id</cite>, <cite>sumsstopgapcode</cite>, and <cite>faindicators</cite> from <cite>codes_fa_indicators</cite>.</p>
+<ul class="simple">
+<li><p><strong>Sets</strong>: <code class="docutils literal notranslate"><span class="pre">faIndicators</span></code></p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="user-selections">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">User Selections</a><a class="headerlink" href="#user-selections" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="setTableType">
+<span class="sig-name descname"><span class="pre">setTableType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setTableType" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedIndicatorCode">
+<span class="sig-name descname"><span class="pre">setSelectedIndicatorCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedIndicatorCode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedfaIndicatorCode">
+<span class="sig-name descname"><span class="pre">setSelectedfaIndicatorCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedfaIndicatorCode" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedGrantee">
+<span class="sig-name descname"><span class="pre">setSelectedGrantee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedGrantee" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedfaGrantee">
+<span class="sig-name descname"><span class="pre">setSelectedfaGrantee</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedfaGrantee" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedYear">
+<span class="sig-name descname"><span class="pre">setSelectedYear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedYear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedQuota">
+<span class="sig-name descname"><span class="pre">setSelectedQuota</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedQuota" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSelectedAggregate">
+<span class="sig-name descname"><span class="pre">setSelectedAggregate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSelectedAggregate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setDefaultUserSelection">
+<span class="sig-name descname"><span class="pre">setDefaultUserSelection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setDefaultUserSelection" title="Link to this definition"></a></dt>
+<dd><ul class="simple">
+<li><p>Accepts an object <cite>{ year, aggregate }</cite>.</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="table-and-year-state">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Table and Year State</a><a class="headerlink" href="#table-and-year-state" title="Link to this heading"></a></h3>
+<dl class="py function">
+<dt class="sig sig-object py" id="setCTtable">
+<span class="sig-name descname"><span class="pre">setCTtable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setCTtable" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setATyears">
+<span class="sig-name descname"><span class="pre">setATyears</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setATyears" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="setSumsTab">
+<span class="sig-name descname"><span class="pre">setSumsTab</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#setSumsTab" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+<section id="dependencies">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Dependencies</a><a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Supabase</strong>: For interacting with <cite>codes_sums_indicators</cite> and <cite>codes_fa_indicators</cite>.</p></li>
+<li><p><strong>GeoServer WFS</strong>: Used for loading district data (<cite>agriconnect:Districts</cite>, <cite>agriconnect:OP_DISTRICTS</cite>).</p></li>
+<li><p><strong>Axios</strong>: Handles WFS HTTP GET requests.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Notes</a><a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Errors from Supabase are logged to the browser console.</p></li>
+<li><p><cite>fetchDistrictData()</cite> stores the full axios response; <cite>setDistrictData()</cite> parses the <cite>.data</cite> field.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="lessons_learned_impediments.html" class="btn btn-neutral float-left" title="Lessons Learned - Impediments/Constraints" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Emmanuel Kipngetich.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
